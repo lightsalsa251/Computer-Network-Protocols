@@ -1,0 +1,133 @@
+1)ns lookup -> Nslookup is a useful tool for troubleshooting DNS problems, such as host name resolution. When you start Nslookup, 
+it shows the host name and IP address of the DNS server that is configured for the local system, 
+and then display a command prompt for further queries. 
+If you type a question mark ( ? ), Nslookup shows all available commands.
+You can exit the program by typing exit .
+
+2)route -> Route is used to view and modify the IP routing table. Route Print displays a list of current routes that the host knows. 
+Sample output from the route command is shown in "Troubleshooting IP Routing" later in this chapter. 
+Route Add adds routes to the table. 
+Route Delete removes routes from the host's routing table.
+Destination symbolic names -> N/W database file
+gateway names -> Host database file
+
+3)host(Linux command) -> This command resolves a host name into an Internet address or an Internet address into a host name.
+Host is a simple utility for performing DNS lookups. It is normally used to convert names to IP addresses and vice versa. 
+When no arguments or options are given, host prints a short summary of its command line arguments and options.
+
+For Windows->
+A machine with machine name "accounting" and ip "192.168.1.95"
+
+IP -> Machine Name:
+
+tracert 192.168.1.95
+or
+
+NBTSTAT  -a 192.168.1.95
+Machine Name -> IP
+
+nslookup accounting
+
+or
+
+ping accounting
+
+
+4)arp -> information of source and destination adressess(ip and mac). 
+Arp allows you to view and modify the ARP cache. If two hosts on the same subnet cannot ping each other successfully, 
+try running the arp -a command on each computer to see whether the computers have the correct media access control (MAC) addresses listed for each other. 
+You can use Ipconfig to determine a host's correct MAC address.
+
+-d < IP address >
+
+Delete
+
+Removes the listed entry from the ARP cache
+
+-s < MAC address >
+
+Static
+
+Adds a static entry to the ARP cache
+
+-N < Interface IP address >
+
+Interface
+
+Lists all ARP entries for the interface specified
+
+-a
+
+Display
+
+Displays all the current ARP entries for all interfaces
+
+-g
+
+Display
+
+Displays all the current ARP entries for all interfaces
+
+5)eth tool(linux command) -> ethtool is used to query and control network device driver and hardware settings, particularly for wired Ethernet devices
+
+6)rarp ->The Reverse Address Resolution Protocol (RARP) is an obsolete computer networking protocol used by a client computer 
+to request its Internet Protocol (IPv4) address from a computer network, 
+when all it has available is its link layer or hardware address, such as a MAC address. 
+The client broadcasts the request, and does not need prior knowledge of the network topology or the identities of servers capable of fulfilling its request.
+
+7)ping ->Ping is the primary tool for troubleshooting IP-level connectivity. Type ping -? at a command prompt to see a complete list of available command-line options. 
+Ping allows you to specify the size of packets to use (the default is 32 bytes), 
+how many to send, whether to record the route used, what Time To Live (TTL) value to use, and whether to set the "don't fragment" flag.
+
+When a ping command is issued, the utility sends an ICMP Echo Request to a destination IP address. Try pinging the IP address of the target host to see if it responds. If that succeeds, try pinging the target host using a host name. 
+Ping first attempts to resolve the name to an address through a DNS server, then a WINS server (if one is configured), then attempts a local broadcast. 
+When using DNS for name resolution, if the name entered is not a fully qualified domain name, the DNS name resolver appends the computer's domain name or names to generate a fully qualified domain name.
+
+If pinging by address succeeds but pinging by name fails, the problem usually lies in name resolution, not network connectivity. 
+Note that name resolution might fail if you do not use a fully qualified domain name for a remote name. 
+These requests fail because the DNS name resolver is appending the local domain suffixes to a name that resides elsewhere in the domain hierarchy.
+
+8)trace-route -> Traces route to destination. Giving details of every router.
+
+9)Netsat -> Netstat displays protocol statistics and current TCP/IP connections. 
+From a command prompt, type Netstat -a to display all connections and listening ports. 
+Type netstat -r to display the contents of the IP routing table and any persistent routes. 
+The -n switch tells Netstat not to convert addresses and port numbers to names, which speeds up execution. 
+The netstat -s option shows all protocol statistics. 
+The netstat -p < protocol > option can be used to show statistics for a specific protocol or together with the -s option to show connections only for the protocol specified. 
+The -e switch displays interface statistics.
+
+10)DIG(DOMAIN INFORMATION GROPER) -> Using dig command you can query DNS name servers for your DNS lookup related tasks.
+linux-> A command
+windows-> A tool
+
+11)ifplugstatus -> ifplugstatus is an utility which may be used to detect the link status of a local Linux ethernet device, 
+much in the same way mii-diag, mii-tool and ethtool work. 
+In fact it supports all three different APIs these three tools use. 
+In addition it supports link checking with the IFF_RUNNING interface flag, 
+which most modern drivers (not only ethernet) support, 
+and association status checking with the wireless extension API for WLAN devices.
+
+12)yshap(tool for traffic analysis)
+denial of service -> if a and b are communicating, c comes in b/w and takes the data through ip address so that b does not recieve anything
+poisoning/spoofing attack -> b recieves some modified information as c modifies it
+these attacks are possible through arp packs
+
+13)ipconfig ->IPConfig is a command-line tool that displays the current configuration of the installed IP stack on a networked computer.
+
+When used with the /all switch, it displays a detailed configuration report for all interfaces, 
+including any configured WAN miniports (typically used for remote access or VPN connections). 
+Output can be redirected to a file and pasted into other documents. A sample 
+http is an application layer protocol
+
+All servers are hosts, but not all hosts are servers. Any device that has established a connection to a network qualifies as a host,
+whereas only hosts that accept connections from other devices (clients) qualify as servers.
+
+A gateway is a node (router) in a computer network, a key stopping point for data on its way to or from other networks. 
+Thanks to gateways, we are able to communicate and send data back and forth. 
+The Internet wouldn't be any use to us without gateways (as well as a lot of other hardware and software).
+
+Hostname displays the name of the host on which the command is issued. The command has no other switches or parameters. 
+The host name displayed matches the name configured on the Network table in Control Panel-System .
+
+When we try to connect to a website with then the destination ip addressess will be different for different connection requests

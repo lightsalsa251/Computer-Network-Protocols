@@ -1,0 +1,21 @@
+import java.net.*;     
+import java.util.Date;
+public class SendTime
+{
+  public static void main(String args[]) throws Exception   
+  {
+    DatagramSocket dsock = new DatagramSocket();     
+    InetAddress address = InetAddress.getLocalHost( ); 
+    System.out.println("Server is ready");
+	
+    while(true)                          
+    {    
+     Thread.sleep(1000);                                               
+     Date currentDate = new Date( );
+     String s1 = currentDate.toString( );
+     byte arr[] = s1.getBytes( );
+     DatagramPacket dpack = new DatagramPacket(arr, arr.length, address, 2000);
+     dsock.send(dpack);                                             
+    }
+  }
+}
